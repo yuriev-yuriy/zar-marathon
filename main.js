@@ -10,7 +10,7 @@ const player1 = {
 
 const player2 = {
     name: 'Margo',
-    hp: 160,
+    hp: 140,
     img: '',
     weapon: ['kick', 'punch', 'uppercut'],
     attack: function () {
@@ -18,7 +18,7 @@ const player2 = {
     }
 }
 
-const createPlayer = function (playerClass, name, hp) {
+const createPlayer = function (playerClass, player) {
     const $div = document.createElement('div');
     $div.classList.add(playerClass);
     const $divProgress = document.createElement('div');
@@ -32,10 +32,10 @@ const createPlayer = function (playerClass, name, hp) {
 
     const $img = document.createElement('img');
     $img.src = "http://reactmarathon-api.herokuapp.com/assets/scorpion.gif";
-    $divLife.style.width = hp + '%';
-    $divName.innerText = name;
+    $divLife.style.width = player.hp + '%';
+    $divName.innerText = player.name;
     $divProgress.appendChild($divLife);
-    $divProgress.appendChild($divCharacter);
+    $divProgress.appendChild($divName);
     $divCharacter.appendChild($img);
     $div.appendChild($divProgress);
     $div.appendChild($divCharacter);
@@ -44,8 +44,8 @@ const createPlayer = function (playerClass, name, hp) {
 }
 console.log(document);
 
-createPlayer('player1', 'SCORPION', 50);
-createPlayer('player2', 'Malina', 80);
+// createPlayer('player1', 'SCORPION', 50);
+// createPlayer('player2', 'Malina', 80);
 
-// createPlayer('player1', player1);
-// createPlayer('player2', player2);
+createPlayer('player1', player1);
+createPlayer('player2', player2);
